@@ -111,7 +111,7 @@ function drawWinLine(coordX1 , coordY1, coordX2, coordY2) {
 // this function interacts with the canvas
 function animateLineDrawing() {
     const animationLoop = requestAnimationFrame(animateLineDrawing);
-    c.clearRect(0,0,608,608)
+    c.clearRect(0, 0, 608, 608)
     c.beginPath(); // start the path of the win line
     c.moveTo(x1, y1)
     c.lineTo(x, y)
@@ -119,15 +119,15 @@ function animateLineDrawing() {
     c.strokeStyle = 'rgba(70 ,255, 33, .8)';
     c.stroke();
     // to check if we reached the end point
-    if (x1 <= x2 && y1 <= y2){
+    if (x1 <= x2 && y1 <= y2) {
         if (x < x2) { x += 10; }
         if (y < y2) { y += 10; }
-        if (x >= x2 && y >+ y2) {cancelAnimationFrame(animationLoop);}
+        if (x >= x2 && y >= y2) { cancelAnimationFrame(animationLoop); }
     }
     if (x1 <+ x2 && y1 >= y2){
         if ( x < x2) { x += 10;}
         if (y > y2) { y -= 10;}
-        if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop);}
+        if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop); }
 
     }
 }
@@ -143,7 +143,7 @@ function clear() {
 disableClick();
 audio('./media/winGame.mp3');
 animateLineDrawing();
-setTimeout(function () {clear(); resetGame(); }, 1000);
+setTimeout(function () { clear(); resetGame(); }, 1000);
 }
 
 //function to reset game 
